@@ -1,0 +1,36 @@
+<h3 class="ui header">{!controller_name!}</h3>
+
+<div ng-controller="RoomsController">
+    <table class="ui table">
+        <thead>
+            <tr>
+                <th>{!department_label!}</th>
+                <th>{!spots_label!}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in items" bn-log-dom-creation>
+                <td width="45%"><div contenteditable="true" ng-model="item.department" data-name="department" class="editable">{!item.department!}</div></td>
+                <td width="45%"><div contenteditable="true" ng-model="item.spots" data-name="spots" class="editable">{!item.spots!}</div></td>
+                <td width="10%"><a ng-model="item.id" ng-click="remove(item)" class="icon" href="" title="Удалить">✖</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="ui fluid form segment">
+        <form ng-submit="submit()" class="rooms">
+            <div class="two fields">
+                <div class="field">
+                    <label>{!department_label!}</label>
+                    <input placeholder="Отдел" type="text" name="department" ng-model="room.department" required>
+                </div>
+                <div class="field">
+                    <label>{!spots_label!}</label>
+                    <input placeholder="Вместимость" type="number" name="spots" ng-model="room.spots" required>
+                </div>
+            </div>
+            <input class="ui submit button" type="submit" value="Submit" />
+        </form>
+    </div>
+</div>

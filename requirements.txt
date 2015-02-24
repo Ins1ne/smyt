@@ -1,0 +1,7 @@
+Django==1.7.4
+PyYAML==3.11
+djangorestframework==3.0.5
+gnureadline==6.3.3
+gunicorn==19.2.1
+trafaret==0.5.3
+wsgiref==0.1.2

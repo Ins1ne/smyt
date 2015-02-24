@@ -1,0 +1,53 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html ng-app="OfficeApp">
+    <head>
+        <script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+        <script src="{% static 'js/angular.min.js' %}"></script>
+        <script src="{% static 'js/angular-route.min.js' %}"></script>
+        <script src="{% static 'js/angular-resource.min.js' %}"></script>
+        <script src="{% static 'js/angular-contenteditable.js' %}"></script>
+        <script src="{% static 'js/semantic.min.js' %}"></script>
+        <script src="{% static 'js/app.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/semantic.min.css' %}" />
+        <meta name="csrf-token" content="{{ csrf_token }}">
+        <style>
+            .content { width: 85%; }
+            div.editable {
+                padding: .67861em 1em;
+                background: #fff;
+                border-radius: .2857rem;
+            }
+            div.editable.error_field {
+                border: 1px solid rgba(39,41,43,.15);
+            }
+            .ui.form input[type=date] {
+                padding: .54861em 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ui bottom attached segment pushable">
+            <div class="ui visible inverted left vertical sidebar menu">
+                {% for link, name in links_list %}
+                    <a href="#/office{{ link }}" class="item">
+                        <i class="icon"></i>
+                        {{ name }}
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="pusher">
+                <div class="ui basic segment">
+                    <div ng-view class="content"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/ng-template" id="users.html">
+        {% include 'users.html' %}
+    </script>
+    <script type="text/ng-template" id="rooms.html">
+        {% include 'rooms.html' %}
+    </script>
+</html>

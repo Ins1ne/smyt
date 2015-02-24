@@ -1,0 +1,45 @@
+<h3 class="ui header">{!controller_name!}</h3>
+
+<div ng-controller="UsersController">
+    <table class="ui table">
+        <thead>
+            <tr>
+                <th>{!name_label!}</th>
+                <th>{!paycheck_label!}</th>
+                <th>{!date_joined_label!}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in items" bn-log-dom-creation data-item_id="{!item.id!}">
+            <td width="30%"><div contenteditable="true" ng-model="item.name" data-name="name" class="editable" no-line-breaks="true">{!item.name!}</div></td>
+            <td width="30%"><div contenteditable="true" ng-model="item.paycheck" data-name="paycheck" class="editable" no-line-breaks="true">{!item.paycheck!}</div></td>
+            <td width="30%">
+                <div ng-model="item.date_joined" data-name="date_joined" ng-click="edit_datepicker(item.id)" ng-hide="show_datepicker_{!item.id!}">{!item.date_joined!}</div>
+                <input ng-show="show_datepicker_{!item.id!}" type="date" class="datepicker" value="{!item.date_joined!}" ng-change="save_datepicker(item)" ng-model="item.date_joined" />
+            </td>
+            <td width="10%"><a ng-model="item.id" ng-click="remove(item)" class="icon" href="" title="Удалить">✖</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="ui fluid form segment">
+        <form ng-submit="submit()" class="users">
+            <div class="three fields">
+                <div class="field">
+                    <label>{!name_label!}</label>
+                    <input placeholder="{!name_label!}" type="text" name="name" ng-model="user.name" required>
+                </div>
+                <div class="field">
+                    <label>{!paycheck_label!}</label>
+                    <input placeholder="{!paycheck_label!}" type="number" name="paycheck" ng-model="user.paycheck" required>
+                </div>
+                <div class="field">
+                    <label>{!date_joined_label!}</label>
+                    <input type="date" name="date_joined" placeholder="yyyy-MM-dd" ng-model="user.date_joined" required>
+                </div>
+            </div>
+            <input type="submit" class="ui submit button" value="Submit" />
+        </form>
+    </div>
+</div>
