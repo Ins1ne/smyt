@@ -6,7 +6,7 @@ django admin and support migrations. Also uses [
 angular.js](https://angularjs.org) for frontend and contenteditable attribute
 in table rows for inline edit.
 
-Application uses sqlite3 as database, so it can work little slow ^_^
+Application uses by default sqlite3 as database, so it can work little slow ^_^
 
 
 Install

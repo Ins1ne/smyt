@@ -60,3 +60,4 @@ target/
 .DS_Store
 *.sqlite3
 local.py
+var/sitestatic

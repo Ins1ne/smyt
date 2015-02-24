@@ -54,7 +54,7 @@ clean:
 	@echo "$(PREFIX) Cleaning *.pyc files"
 	@find . -name "*.pyc" -exec rm -f {} \;
 
-static:
+collect:
 	@echo "$(PREFIX) Run collect static."
 	@$(PYTHON) manage.py collectstatic --noinput
 
