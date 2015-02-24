@@ -30,7 +30,7 @@ class DynamicModelTestCase(TestCase):
             file.write(yaml.dump(data))
 
         self.migrations_path = os.path.join(
-            settings.BASE_DIR, 'office', 'migrations'
+            settings.BASE_DIR, '..', 'office', 'migrations'
         )
         self.migrations = os.listdir(self.migrations_path)
 
